@@ -12,7 +12,9 @@ describe("[sum]", () => {
     const sumSpy = tracker.calls(sum)
     const numbers = [1, 2]
 
-    sumSpy(...numbers)
+    const result = sumSpy(...numbers)
+
+    assert.equal(result, numbers.reduce((acc, curr) => acc + curr, 0))
 
     const [{ arguments: args }] = tracker.getCalls(sumSpy)
 

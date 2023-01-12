@@ -1,22 +1,24 @@
 import express from "express"
+import { setTimeout } from "node:timers/promises"
 
-const app = express()
+export const app = express()
 
 app.use(express.json())
 
-const data = [
-  {
-    id: "1",
-    name: "vitor"
-  }
-]
+export const fetcher = {
+  fetchUsers: () => ([
+    {
+      id: "1",
+      name: "vitor"
+    }
+  ])
+}
 
 app.get("/", async (_, response) => {
-  const users = await new Promise(resolve => {
-    setTimeout(() => {
-      resolve(data)
-    }, 1000)
-  })
+  await setTimeout(1000)
+  // throw new Error("Oh my gad")
+  
+  const users = fetcher.fetchUsers();
 
   return response.status(200).json(users)
 })

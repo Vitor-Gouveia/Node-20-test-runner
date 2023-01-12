@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Vitor-Gouveia/node-20-test-runner#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "supertest": "^6.3.3"
   }
 }
