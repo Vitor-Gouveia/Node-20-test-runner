@@ -14,7 +14,7 @@ describe("[SPY]", () => {
   
       const [{ arguments: args }] = tracker.getCalls(sumSpy)
 
-      log("sumSpy", "called with arguments ", args)
+      log("sumSpy", "called with arguments ", args)()
   
       assert.deepStrictEqual(args, nums)
     })
@@ -28,7 +28,7 @@ describe("[SPY]", () => {
   
       const [{ arguments: args }] = tracker.getCalls(sumSpy)
 
-      log("sumSpy", "called with arguments ", args)
+      log("sumSpy", "called with arguments ", args)()
   
       assert.deepStrictEqual(args, nums)
     })

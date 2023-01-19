@@ -8,8 +8,8 @@ const math = {
   sum
 }
 
-const logger = (config) => (fnName, ...args) => {
-  config.active
+const logger = (config) => (fnName, ...args) => ({ activate = false } = { activate: false }) => {
+  config.active || activate
     ? console.log(`[${fnName}()] \t`, ...args)
     : null
 }
